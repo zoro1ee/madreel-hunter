@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "madreel-hunter"
+version = "0.1.0"
+description = "TMDB-driven 115 share matching, scoring and unlock automation on top of the MADREEL OpenAPI v2"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "zoro1ee" }]
+keywords = ["115", "tmdb", "media", "emby", "moviepilot", "madreel", "openapi"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mh = "madreel_hunter.cli:main"
+madreel-hunter = "madreel_hunter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/zoro1ee/madreel-hunter"
+Issues = "https://github.com/zoro1ee/madreel-hunter/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

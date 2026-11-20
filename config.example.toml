@@ -1,0 +1,40 @@
+# madreel-hunter configuration
+# Copy to ./config.toml (git-ignored) or ~/.config/madreel-hunter/config.toml
+
+[api]
+# Your personal OpenAPI key from https://madow.tv (账户 → API Key).
+# Prefer the MADREEL_API_KEY environment variable over writing it here.
+key = "dys_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+base_url = "https://madow.tv"
+
+[tmdb]
+# https://www.themoviedb.org/settings/api  (v3 auth). Can also come from TMDB_API_KEY.
+api_key = ""
+
+[http]
+# Optional outbound proxy, e.g. "http://127.0.0.1:6152"
+proxy = ""
+timeout = 20
+
+# Override any part of the default scoring profile. Unlisted keys keep defaults.
+[scoring]
+chinese_subtitle_bonus = 12
+offline_penalty = 10
+use_count_cap = 20
+
+[scoring.resolution]
+"8K" = 90
+"4K" = 80
+"1080P" = 60
+"720P" = 40
+
+[scoring.source]
+"BLURAY-REMUX" = 40
+"REMUX" = 38
+"WEB-DL" = 30
+"BLURAY" = 26
+
+# Optional delivery target, used when --webhook is not passed explicitly.
+[targets.webhook]
+url = ""
+token = ""
